@@ -1,3 +1,4 @@
 export enum PAGE_PATHS {
-  HOME = '/home',
+  HOME = "/home",
+  PRODUCT_LISTS = "/products",
 }
