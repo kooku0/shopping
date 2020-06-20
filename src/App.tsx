@@ -7,6 +7,7 @@ import {
 } from "react-router-dom";
 import { PAGE_PATHS } from "~constants";
 import ProductList from "~pages/ProductList";
+import Cart from "~pages/Cart";
 
 export default class App extends Component {
   render() {
@@ -14,6 +15,7 @@ export default class App extends Component {
       <Router>
         <Switch>
           <Route path={PAGE_PATHS.PRODUCT_LISTS} component={ProductList} />
+          <Route path={PAGE_PATHS.CART} component={Cart} />
           <Redirect from="/" to={PAGE_PATHS.PRODUCT_LISTS} />
         </Switch>
       </Router>
