@@ -1,7 +1,16 @@
 import React from "react";
+import Container from "~components/Cart/Container";
+import NavBar from "~components/Common/NavBar";
+import Footer from "~components/Common/Footer";
 
 function Cart() {
-  return <div>cart</div>;
+  return (
+    <>
+      <NavBar />
+      <Container />
+      <Footer />
+    </>
+  );
 }
 
 export default Cart;
