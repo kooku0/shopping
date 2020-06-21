@@ -16,7 +16,6 @@ export default function usePagination(data: any[], splitedNum: number) {
     }
   }, [data, currentPage, totalPage]);
   const onClickNext = useCallback(() => {
-    console.log(currentPage, totalPage);
     if (currentPage < totalPage) {
       setCurrentData(splitedData[currentPage]);
       setCurrentPage(currentPage + 1);

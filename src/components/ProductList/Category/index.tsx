@@ -1,5 +1,7 @@
 import React from "react";
 
+import "./style.scss";
+
 function Category() {
   return (
     <div className="categories-group">

@@ -5,8 +5,6 @@ import NavBar from "~components/Common/NavBar";
 import Footer from "~components/Common/Footer";
 import { getProducts } from "~stores";
 
-import "./style.scss";
-
 function ProductList() {
   const dispatch = useDispatch();
   useEffect(() => {
