@@ -5,3 +5,4 @@ export enum PAGE_PATHS {
 }
 
 export const ITEMS_PER_PAGE = 5;
+export const MAX_CART_NUM = 3;
