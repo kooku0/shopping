@@ -1,6 +1,6 @@
 import React, { useEffect, ChangeEvent } from "react";
-import { useSelector } from "react-redux";
-import { StoreState, TProduct } from "~stores";
+import { useSelector, useDispatch } from "react-redux";
+import { StoreState, TProduct, deleteCart } from "~stores";
 import { PriceInfo } from "~components/Cart/Container";
 import Item from "~components/Cart/ProductInfo/Item";
 
@@ -10,6 +10,7 @@ interface ProductInfoProps {
 }
 
 function ProductInfo({ pricesInfo, setPricesInfo }: ProductInfoProps) {
+  const dispatch = useDispatch();
   const { products } = useSelector((state: StoreState) => state.cart);
   useEffect(() => {
     const initPriceInfo = products.map((product: TProduct) => ({
@@ -35,6 +36,9 @@ function ProductInfo({ pricesInfo, setPricesInfo }: ProductInfoProps) {
     }
 
     setPricesInfo(nextPricesInfo);
+  };
+  const handleDeleteItem = (id: string) => {
+    dispatch(deleteCart(id));
   };
   return (
     <>
@@ -63,6 +67,7 @@ function ProductInfo({ pricesInfo, setPricesInfo }: ProductInfoProps) {
               {...product}
               priceInfo={findPriceInfo(product.id)}
               handleProductCount={handleProductCount}
+              handleDeleteItem={handleDeleteItem}
             />
           ))}
         </tbody>

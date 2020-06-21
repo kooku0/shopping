@@ -7,10 +7,18 @@ import { faTrashAlt } from "@fortawesome/free-regular-svg-icons";
 interface ItemProps {
   priceInfo?: PriceInfo;
   handleProductCount: Function;
+  handleDeleteItem: (id: string) => void;
 }
 
 function Item(props: TProduct & ItemProps) {
-  const { id, title, coverImage, priceInfo, handleProductCount } = props;
+  const {
+    id,
+    title,
+    coverImage,
+    priceInfo,
+    handleProductCount,
+    handleDeleteItem,
+  } = props;
 
   return (
     <tr>
@@ -38,9 +46,12 @@ function Item(props: TProduct & ItemProps) {
       </td>
       <td className="text-right">{priceInfo?.subTotal} 원</td>
       <td className="text-right">
-        <button className="btn btn-sm btn-primary">
+        <div
+          className="btn btn-sm btn-primary"
+          onClick={() => handleDeleteItem(id)}
+        >
           <FontAwesomeIcon icon={faTrashAlt} />
-        </button>
+        </div>
       </td>
     </tr>
   );
