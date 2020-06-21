@@ -1,8 +1,21 @@
-import React from "react";
+import React, { useCallback } from "react";
 import { TProduct } from "~stores";
 
-function Product(props: TProduct) {
-  const { title, coverImage, price, score, availableCoupon } = props;
+interface ProductProps {
+  product: TProduct;
+  handleAddCart: (product: TProduct) => void;
+  handleDeleteCart: (id: string) => void;
+  handleCart: (isCart: boolean, product: TProduct) => void;
+  isCart: boolean;
+}
+
+function Product(props: ProductProps) {
+  const {
+    product: { title, coverImage, price, availableCoupon },
+    handleCart,
+    isCart,
+  } = props;
+
   return (
     <a href="detail.html">
       <div className="card">
@@ -22,7 +35,12 @@ function Product(props: TProduct) {
             <h6 className="category">
               {availableCoupon ?? true ? "쿠폰적용가능" : "쿠폰적용불가능"}
             </h6>
-            <button className="cart btn btn-light">담기</button>
+            <div
+              className="cart btn btn-light"
+              onClick={() => handleCart(isCart, props.product)}
+            >
+              {isCart ? "담기" : "빼기"}
+            </div>
           </div>
         </div>
       </div>

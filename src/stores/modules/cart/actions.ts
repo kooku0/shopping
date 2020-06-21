@@ -6,7 +6,7 @@ export const addCart = (product: TProduct) => ({
   payload: product,
 });
 
-export const deleteCart = (id: number) => ({
+export const deleteCart = (id: string) => ({
   type: DELETE_CART,
   payload: id,
 });
