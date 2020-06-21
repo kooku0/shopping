@@ -1,19 +1,28 @@
-import React from "react";
+import React, { useState } from "react";
 import ProductInfo from "~components/Cart/ProductInfo";
 import CouponDiscount from "~components/Cart/CouponDiscount";
 import Price from "~components/Cart/Price";
-
-import "./style.scss";
 import { NavLink } from "react-router-dom";
 import { PAGE_PATHS } from "~constants";
 
+import "./style.scss";
+
+export interface PriceInfo {
+  id: string;
+  price: number;
+  count: number;
+  discount: number;
+  subTotal: number;
+}
+
 function CartContainer() {
+  const [pricesInfo, setPricesInfo] = useState([]);
   return (
     <div className="container container-main-index">
       <h5 className="container-headline">장바구니</h5>
       <ul className="list-group">
         <li className="list-group-item">
-          <ProductInfo />
+          <ProductInfo pricesInfo={pricesInfo} setPricesInfo={setPricesInfo} />
         </li>
         <li className="list-group-item">
           <CouponDiscount />
