@@ -1,11 +1,11 @@
 import React, { ChangeEvent } from "react";
 import { TProduct } from "~stores";
-import { PriceInfo } from "~components/Cart/Container";
+import { TPriceInfo } from "~components/Cart/Container";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrashAlt } from "@fortawesome/free-regular-svg-icons";
 
 interface ItemProps {
-  priceInfo?: PriceInfo;
+  priceInfo?: TPriceInfo;
   handleProductCount: Function;
   handleDeleteItem: (id: string) => void;
 }

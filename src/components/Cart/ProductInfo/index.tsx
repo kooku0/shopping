@@ -1,11 +1,11 @@
 import React, { useEffect, ChangeEvent } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { StoreState, TProduct, deleteCart } from "~stores";
-import { PriceInfo } from "~components/Cart/Container";
+import { TPriceInfo } from "~components/Cart/Container";
 import Item from "~components/Cart/ProductInfo/Item";
 
 interface ProductInfoProps {
-  pricesInfo: PriceInfo[];
+  pricesInfo: TPriceInfo[];
   setPricesInfo: Function;
 }
 

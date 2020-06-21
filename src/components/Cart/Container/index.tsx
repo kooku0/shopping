@@ -7,13 +7,13 @@ import { PAGE_PATHS } from "~constants";
 
 import "./style.scss";
 
-export interface PriceInfo {
+export type TPriceInfo = {
   id: string;
   price: number;
   count: number;
   discount: number;
   subTotal: number;
-}
+};
 
 function CartContainer() {
   const [pricesInfo, setPricesInfo] = useState([]);
