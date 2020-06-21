@@ -5,6 +5,7 @@ import Product from "~components/ProductList/ProductsContainer/Product";
 import Pagination from "~components/Common/Pagination";
 import usePagination from "~hooks/usePagination";
 import { ITEMS_PER_PAGE, MAX_CART_NUM } from "~constants";
+import Alert from "react-s-alert";
 
 function ProductsContainer() {
   const dispatch = useDispatch();
@@ -28,8 +29,14 @@ function ProductsContainer() {
     if (isCart) {
       dispatch(deleteCart(product.id));
     } else {
-      if (cartProducts.length < MAX_CART_NUM) dispatch(addCart(product));
-      else console.log("꽉 찼습니다.");
+      if (cartProducts.length < MAX_CART_NUM) {
+        dispatch(addCart(product));
+      } else {
+        Alert.warning(`장바구니가 꽉찼습니다.`, {
+          position: "bottom-right",
+          effect: "slide",
+        });
+      }
     }
   };
   const isCart = (id: string) =>
