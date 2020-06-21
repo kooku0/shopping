@@ -15,6 +15,7 @@ function ProductInfo({ pricesInfo, setPricesInfo }: ProductInfoProps) {
   useEffect(() => {
     const initPriceInfo = products.map((product: TProduct) => ({
       id: product.id,
+      availableCoupon: product.availableCoupon ?? true,
       price: product.price,
       count: 1,
       discount: 0,

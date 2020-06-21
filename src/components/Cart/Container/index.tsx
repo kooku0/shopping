@@ -9,6 +9,7 @@ import "./style.scss";
 
 export type TPriceInfo = {
   id: string;
+  availableCoupon: boolean;
   price: number;
   count: number;
   discount: number;
@@ -25,7 +26,10 @@ function CartContainer() {
           <ProductInfo pricesInfo={pricesInfo} setPricesInfo={setPricesInfo} />
         </li>
         <li className="list-group-item">
-          <CouponDiscount />
+          <CouponDiscount
+            pricesInfo={pricesInfo}
+            setPricesInfo={setPricesInfo}
+          />
         </li>
         <li className="list-group-item">
           <Price pricesInfo={pricesInfo} />
