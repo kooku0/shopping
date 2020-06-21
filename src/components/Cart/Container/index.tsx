@@ -28,7 +28,7 @@ function CartContainer() {
           <CouponDiscount />
         </li>
         <li className="list-group-item">
-          <Price />
+          <Price pricesInfo={pricesInfo} />
         </li>
       </ul>
       <hr />
