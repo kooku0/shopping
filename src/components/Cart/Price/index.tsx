@@ -1,21 +1,21 @@
 import React, { useMemo } from "react";
-import { PriceInfo } from "~components/Cart/Container";
+import { TPriceInfo } from "~components/Cart/Container";
 
 interface PriceProps {
-  pricesInfo: PriceInfo[];
+  pricesInfo: TPriceInfo[];
 }
 
 function Price({ pricesInfo }: PriceProps) {
   const sumSubTotal = useMemo(() => {
     let sum = 0;
-    pricesInfo.forEach((priceInfo: PriceInfo) => {
+    pricesInfo.forEach((priceInfo: TPriceInfo) => {
       sum += priceInfo.subTotal;
     });
     return sum;
   }, [pricesInfo]);
   const sumDiscount = useMemo(() => {
     let sum = 0;
-    pricesInfo.forEach((priceInfo: PriceInfo) => {
+    pricesInfo.forEach((priceInfo: TPriceInfo) => {
       sum += priceInfo.discount;
     });
     return sum;

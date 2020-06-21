@@ -7,13 +7,14 @@ import { PAGE_PATHS } from "~constants";
 
 import "./style.scss";
 
-export interface PriceInfo {
+export type TPriceInfo = {
   id: string;
+  availableCoupon: boolean;
   price: number;
   count: number;
   discount: number;
   subTotal: number;
-}
+};
 
 function CartContainer() {
   const [pricesInfo, setPricesInfo] = useState([]);
@@ -25,7 +26,10 @@ function CartContainer() {
           <ProductInfo pricesInfo={pricesInfo} setPricesInfo={setPricesInfo} />
         </li>
         <li className="list-group-item">
-          <CouponDiscount />
+          <CouponDiscount
+            pricesInfo={pricesInfo}
+            setPricesInfo={setPricesInfo}
+          />
         </li>
         <li className="list-group-item">
           <Price pricesInfo={pricesInfo} />
