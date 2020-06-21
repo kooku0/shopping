@@ -8,6 +8,9 @@ import { ITEMS_PER_PAGE } from "~constants";
 
 function ProductsContainer() {
   const { products } = useSelector((state: StoreState) => state.products);
+  const { products: cardProducts } = useSelector(
+    (state: StoreState) => state.cart
+  );
   const sortedProducts = useMemo(
     () => products.sort((a: TProduct, b: TProduct) => b.score - a.score),
     [products]
@@ -19,6 +22,7 @@ function ProductsContainer() {
     onClickPrev,
     onClickNext,
   } = usePagination(sortedProducts, ITEMS_PER_PAGE);
+
   return (
     <>
       <ul className="list-products row">

@@ -2,7 +2,7 @@ import { ADD_CART, DELETE_CART, CartState } from "./types";
 import { TProduct } from "~stores";
 
 const initialState: CartState = {
-  products: JSON.parse(window.localStorage.getItem("cart") ?? []),
+  products: JSON.parse(window.localStorage.getItem("cart") ?? "[]"),
 };
 
 export const cart = (state: CartState = initialState, action: any) => {
@@ -24,6 +24,6 @@ export const cart = (state: CartState = initialState, action: any) => {
         products: deletedProducts,
       };
     default:
-      break;
+      return state;
   }
 };

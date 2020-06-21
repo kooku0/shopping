@@ -19,8 +19,10 @@ function Product(props: TProduct) {
           <h6 className="price">{price}</h6>
 
           <div className="text-muted">
-            <h6 className="category">카테고리..</h6>
-            <time dateTime="2019-08-20T08:30:00Z">2개월전</time>
+            <h6 className="category">
+              {availableCoupon ?? true ? "쿠폰적용가능" : "쿠폰적용불가능"}
+            </h6>
+            <button className="cart btn btn-light">담기</button>
           </div>
         </div>
       </div>
