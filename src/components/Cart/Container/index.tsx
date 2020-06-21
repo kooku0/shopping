@@ -4,6 +4,8 @@ import CouponDiscount from "~components/Cart/CouponDiscount";
 import Price from "~components/Cart/Price";
 
 import "./style.scss";
+import { NavLink } from "react-router-dom";
+import { PAGE_PATHS } from "~constants";
 
 function CartContainer() {
   return (
@@ -25,7 +27,12 @@ function CartContainer() {
         <div className="col mb-2">
           <div className="row">
             <div className="col-sm-12  col-md-6">
-              <button className="btn btn-block btn-light">계속 쇼핑하기</button>
+              <NavLink
+                className="btn btn-block btn-light"
+                to={PAGE_PATHS.PRODUCT_LISTS}
+              >
+                계속 쇼핑하기
+              </NavLink>
             </div>
             <div className="col-sm-12 col-md-6 text-right">
               <button className="btn btn-lg btn-block btn-success text-uppercase">
