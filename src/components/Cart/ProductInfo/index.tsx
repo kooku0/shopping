@@ -1,7 +1,10 @@
 import React from "react";
+import { useSelector } from "react-redux";
+import { StoreState, TProduct } from "~stores";
 import Item from "~components/Cart/ProductInfo/Item";
 
 function ProductInfo() {
+  const { products } = useSelector((state: StoreState) => state.cart);
   return (
     <>
       <h4>Product Info</h4>
@@ -23,9 +26,9 @@ function ProductInfo() {
           </tr>
         </thead>
         <tbody>
-          <Item />
-          <Item />
-          <Item />
+          {products.map((product: TProduct) => (
+            <Item key={product.id} {...product} />
+          ))}
         </tbody>
       </table>
     </>

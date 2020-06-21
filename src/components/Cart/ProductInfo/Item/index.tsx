@@ -1,16 +1,24 @@
 import React from "react";
+import { TProduct } from "~stores";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrashAlt } from "@fortawesome/free-regular-svg-icons";
 
-function Item() {
+function Item(props: TProduct) {
+  const { title, coverImage, price, availableCoupon } = props;
   return (
     <tr>
       <td>
-        <img src="https://dummyimage.com/50x50/55595c/fff" />{" "}
+        <div
+          style={{
+            background: `url('${coverImage}') no-repeat center`,
+            backgroundSize: "cover",
+            height: "50px",
+            width: "50px",
+          }}
+        ></div>
       </td>
-      <td>Product Name Dada</td>
-      <td className="text-right">124,90 원</td>
-
+      <td>{title}</td>
+      <td className="text-right">{price} 원</td>
       <td>
         <input className="form-control" type="text" value="1" />
       </td>

@@ -36,7 +36,7 @@ function Product(props: ProductProps) {
             className="cart btn btn-light"
             onClick={() => handleCart(isCart, props.product)}
           >
-            {isCart ? "담기" : "빼기"}
+            {isCart ? "빼기" : "담기"}
           </div>
         </div>
       </div>
