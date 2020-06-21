@@ -24,13 +24,6 @@ function ProductsContainer() {
     onClickNext,
   } = usePagination(sortedProducts, ITEMS_PER_PAGE);
 
-  const handleAddCart = (product: TProduct) => {
-    dispatch(addCart(product));
-  };
-  const handleDeleteCart = (id: string) => {
-    dispatch(deleteCart(id));
-  };
-
   const handleCart = (isCart: boolean, product: TProduct) => {
     if (isCart) {
       dispatch(deleteCart(product.id));
@@ -52,8 +45,6 @@ function ProductsContainer() {
           >
             <Product
               product={product}
-              handleAddCart={handleAddCart}
-              handleDeleteCart={handleDeleteCart}
               handleCart={handleCart}
               isCart={isCart(product.id)}
             />
