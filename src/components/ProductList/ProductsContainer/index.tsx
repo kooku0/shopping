@@ -1,13 +1,13 @@
 import React, { useMemo } from "react";
 import { useSelector } from "react-redux";
-import { TProduct } from "~stores";
+import { StoreState, TProduct } from "~stores";
 import Product from "~components/ProductList/ProductsContainer/Product";
 import Pagination from "~components/Common/Pagination";
 
 import "./style.scss";
 
 function ProductsContainer() {
-  const { products } = useSelector((state) => state.products);
+  const { products } = useSelector((state: StoreState) => state.products);
   const sortedProducts = useMemo(
     () => products.sort((a: TProduct, b: TProduct) => b.score - a.score),
     [products]
