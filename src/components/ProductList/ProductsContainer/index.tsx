@@ -3,8 +3,8 @@ import { useSelector } from "react-redux";
 import { StoreState, TProduct } from "~stores";
 import Product from "~components/ProductList/ProductsContainer/Product";
 import Pagination from "~components/Common/Pagination";
-
-import "./style.scss";
+import usePagination from "~hooks/usePagination";
+import { ITEMS_PER_PAGE } from "~constants";
 
 function ProductsContainer() {
   const { products } = useSelector((state: StoreState) => state.products);
@@ -12,10 +12,17 @@ function ProductsContainer() {
     () => products.sort((a: TProduct, b: TProduct) => b.score - a.score),
     [products]
   );
+  const {
+    totalPage,
+    currentPage,
+    currentData,
+    onClickPrev,
+    onClickNext,
+  } = usePagination(sortedProducts, ITEMS_PER_PAGE);
   return (
     <>
       <ul className="list-products row">
-        {sortedProducts.map((product: TProduct) => (
+        {currentData.map((product: TProduct) => (
           <li
             className="list-products-item col-12 col-md-4 col-lg-3"
             key={product.id}
@@ -24,9 +31,12 @@ function ProductsContainer() {
           </li>
         ))}
       </ul>
-      <div className="mx-auto">
-        <Pagination />
-      </div>
+      <Pagination
+        onClickPrev={onClickPrev}
+        onClickNext={onClickNext}
+        currentPage={currentPage}
+        totalPage={totalPage}
+      />
     </>
   );
 }

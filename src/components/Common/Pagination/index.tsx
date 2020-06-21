@@ -1,33 +1,45 @@
 import React from "react";
 
-function Pagination() {
+interface PaginationProps {
+  onClickPrev: () => void;
+  onClickNext: () => void;
+  currentPage: number;
+  totalPage: number;
+}
+
+function Pagination({
+  onClickPrev,
+  onClickNext,
+  currentPage,
+  totalPage,
+}: PaginationProps) {
   return (
     <nav aria-label="Page navigation example">
       <ul className="pagination justify-content-center">
         <li className="page-item">
-          <a className="page-link" href="#">
+          <div className="page-link" onClick={() => onClickPrev()}>
             Previous
-          </a>
+          </div>
         </li>
-        <li className="page-item">
-          <a className="page-link" href="#">
-            1
-          </a>
+        {currentPage !== 1 ? (
+          <li className="page-item">
+            <div className="page-link" onClick={() => onClickPrev()}>
+              {currentPage - 1}
+            </div>
+          </li>
+        ) : null}
+
+        <li className="page-item active">
+          <div className="page-link">{currentPage}</div>
         </li>
-        <li className="page-item">
-          <a className="page-link" href="#">
-            2
-          </a>
-        </li>
-        <li className="page-item">
-          <a className="page-link" href="#">
-            3
-          </a>
-        </li>
-        <li className="page-item">
-          <a className="page-link" href="#">
-            Next
-          </a>
+        {currentPage !== totalPage ? (
+          <li className="page-item" onClick={() => onClickNext()}>
+            <div className="page-link">{currentPage + 1}</div>
+          </li>
+        ) : null}
+
+        <li className="page-item" onClick={() => onClickNext()}>
+          <div className="page-link">Next</div>
         </li>
       </ul>
     </nav>
