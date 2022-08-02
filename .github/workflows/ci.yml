@@ -7,7 +7,7 @@ on:
 
 jobs:
   build:
-    if: "!contains(github.event.pull_request.labels.*.name, 'skip-release')"
+    if: "!contains(github.event.pull_request.labels.*.name, 'skip release')"
     runs-on: ubuntu-latest
 
     steps:
