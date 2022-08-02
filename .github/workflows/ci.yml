@@ -1,0 +1,16 @@
+name: CD
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    if: "!contains(github.event.pull_request.labels.*.name, 'skip-release')"
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Run a one-line script
+      run: echo >> deploy
