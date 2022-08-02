@@ -4,6 +4,9 @@ on:
   push:
     branches:
       - master
+  pull_request:
+    types:
+      - closed
 
 jobs:
   build:
@@ -12,4 +15,4 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Run a one-line script
-      run: echo ${{ toJson(github.event.pull_request) }}
+      run: echo ${{ toJson(github.event) }}
