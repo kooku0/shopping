@@ -7,10 +7,9 @@ on:
 
 jobs:
   build:
-    if: ${{ github.event.label.name != 'skip release' }}
     runs-on: ubuntu-latest
 
     steps:
     - uses: actions/checkout@v2
     - name: Run a one-line script
-      run: echo Hello, world
+      run: echo ${{ github.event }}
