@@ -4,9 +4,6 @@ on:
   push:
     branches:
       - master
-  pull_request:
-    types:
-      - closed
 
 jobs:
   build:
@@ -15,4 +12,10 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Run a one-line script
-      run: echo ${{ toJson(github.event) }}
+      run: echo ${{ toJson(github) }}
+    - name: Check PR labels action step
+      id: check_pr_labels
+      uses: shioyang/check-pr-labels-on-push-action@v1.0.3
+    - name: See result
+      run: echo "${{ steps.check_pr_labels.outputs.result }}"
+
