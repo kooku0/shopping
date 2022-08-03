@@ -31,6 +31,7 @@ export default function usePagination(data: any[], splitedNum: number) {
   };
 }
 
+
 function arrayDivision(arr: any[], n: number) {
   const len = arr.length;
   const tmp = [];
