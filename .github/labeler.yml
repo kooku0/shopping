@@ -1,5 +1,5 @@
 hooks:
-- any: 'src/hooks/**/*'
+- src/hooks/**/*
 
 data:
-- any: 'src/data/**/*'
+- src/data/**/*
